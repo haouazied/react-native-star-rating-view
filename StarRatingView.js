@@ -45,7 +45,7 @@ import {
 
 import PropTypes from 'prop-types'
 
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/Entypo'
 
 const RNViewPropTypes = ViewPropTypes || View.propTypes;
 const RNPropTypes = PropTypes || React.PropTypes;
@@ -539,7 +539,7 @@ class StarView extends Component {
         // 星星宽度
         let starWidth = Math.max(0, starStyleMerge.width);
         if (!emptyStarImage) {
-            emptyStarImage = <Icon style={{flex: 1, textAlign: 'center'}} name="star-o" size={starWidth} color={emptyStarColor}/>
+            emptyStarImage = <Icon style={{flex: 1, textAlign: 'center'}} name="star" size={starWidth} color={emptyStarColor}/>
         }
         if (!filledStarImage) {
             filledStarImage = <Icon style={{flex: 1, textAlign: 'center'}} name="star" size={starWidth} color={tintColor}/>
@@ -557,7 +557,7 @@ class StarView extends Component {
                      * 要让此属性生效，首先要求视图有很多超出范围的子视图，并且子视图和容器视图（或它的某个祖先视图）都应该有样式overflow: hidden。
                      */
                     removeClippedSubviews={true} // 兼容Android
-                    style={[styles.absoluteStar, starStyleMerge, {width: starStyleMerge.width * progress}]}
+                    style={[styles.absoluteStar, starStyleMerge, {width: starStyleMerge.width * progress,marginLeft:progress == 1 ? 0 : 1}]}
                 >
                     {filledStarImage}
                 </View>
@@ -596,6 +596,8 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         width: 16,
+        flexDirection: 'row',
+        alignItems: 'center',
         overflow: 'hidden',
     },
 });
