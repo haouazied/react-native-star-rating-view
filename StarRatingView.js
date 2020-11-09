@@ -592,12 +592,12 @@ const styles = StyleSheet.create({
     },
     absoluteStar: {
         position: 'absolute',
-        top: 0,
+        top: -0.5,
         bottom: 0,
         left: 0,
         width: 16,
         flexDirection: 'row',
-        alignItems: 'center',
+        // alignItems: 'center',
         overflow: 'hidden',
     },
 });
